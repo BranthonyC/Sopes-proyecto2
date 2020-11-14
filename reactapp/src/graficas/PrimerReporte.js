@@ -51,16 +51,7 @@ export default class PrimerReporte extends Component {
                     <div className="title">
                         <h2>Descripcion</h2>
                     </div>
-                    Top tres de
-                    departamentos con más
-                    casos (consultado al
-                    servidor de MongoDB)
-                </div>
-                <div className="data">
-                    <div className="title">
-                        <h2>Datos</h2>
-                    </div>
-                    Some data tha has been retrieved.
+                    {this.props.descripcion}
                 </div>
             </div>
         )

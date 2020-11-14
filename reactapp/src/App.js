@@ -20,7 +20,7 @@ export default class App extends Component {
   }
 
   async getDataAxios(){
-      const response = await axios.get("http://18.222.232.8:6379/");
+      const response = await axios.get("http://localhost:8081/");
       this.setState({last_item:response.data});
       console.log(response.data);
   }
@@ -122,12 +122,12 @@ export default class App extends Component {
         <div className="App">   
             {
               primer_reporte===true?
-                <PrimerReporte data={this.state.data_primer_reporte} title="Top 3 departamentos afectados"> </PrimerReporte> 
+                <PrimerReporte data={this.state.data_primer_reporte} title="Top 3 departamentos afectados" descripcion="Los 3 departamentos mas afectados por el coronavirus mostrado en una grafica pie. Los datos fueron consultados a mongodb"> </PrimerReporte> 
                 : ''
             }
             {
               segundo_reporte===true?
-                <PrimerReporte data={this.state.data_segundo_reporte} title="Todos los departamentos afectados"></PrimerReporte> 
+                <PrimerReporte data={this.state.data_segundo_reporte} title="Todos los departamentos afectados" descripcion="Todos los departmaentos afectados por el coronavirus mostrado en una grafica pie. Los datos fueron consultados a mongodb"></PrimerReporte> 
                 : ''
             }
             { tercer_reporte===true?
@@ -145,7 +145,7 @@ export default class App extends Component {
             }
             {
               cuarto_reporte===true?
-                <HorizontalBarExample data={this.state.data_cuarto_reporte}></HorizontalBarExample> 
+                <HorizontalBarExample data={this.state.data_cuarto_reporte} descripcion="Grafica de barras que muesta la cantidad de afectados por rango de 10 años."></HorizontalBarExample> 
                 : ''
             }
         </div>

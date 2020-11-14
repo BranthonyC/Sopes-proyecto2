@@ -29,13 +29,10 @@ export default class CuartoReporte extends Component {
             <div className="description">
                 <div className="title">
                     <h2>Descripcion</h2>
+                    {this.props.descripcion}
                 </div>
             </div>
             <div className="data">
-                <div className="title">
-                    <h2>Datos</h2>
-                </div>
-                Some data tha has been retrieved.
             </div>
         </div>
         );
