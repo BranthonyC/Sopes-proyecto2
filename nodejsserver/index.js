@@ -4,6 +4,7 @@ var redis = require("redis");
 var express = require('express')
 var client = redis.createClient(6379, '18.222.232.8');
 var app = express()
+var cors = require('cors');
 
  
 // Connection URL
@@ -71,6 +72,8 @@ app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Credentials', true); 
   next(); 
 });
+
+app.use(cors());
 
 app.listen(8081, function () {
   console.log('CORS-enabled web server listening on port 8081')
