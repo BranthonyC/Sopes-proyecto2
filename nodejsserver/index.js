@@ -41,7 +41,7 @@ const CuartoReporte = function(db, callback){
                     { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 61] }, { "$lt": [{$toInt:"$age"}, 71] } ]}, "60 - 70", ""] },
                     { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 71] }, { "$lt": [{$toInt:"$age"}, 81] } ]}, "70 - 80", ""] },
                     { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 81] }, { "$lt": [{$toInt:"$age"}, 91] } ]}, "80 - 90", ""] },
-                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 91] }, { "$lt": [{$toInt:"$age"}, 101] } ]}, "80 - 90", ""] },
+                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 91] }, { "$lt": [{$toInt:"$age"}, 101] } ]}, "90 - 100", ""] },
                 ]
             },
             "personas": { "$sum": 1 }
