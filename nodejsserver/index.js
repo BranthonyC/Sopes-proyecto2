@@ -63,15 +63,15 @@ const SegundoReporte = function(db, callback){
   });
 }
 
-// Use connect method to connect to the server
+// // Use connect method to connect to the server
 
-app.use(function (req, res, next) { 
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  res.setHeader('Access-Control-Allow-Credentials', true); 
-  next(); 
-});
+// app.use(function (req, res, next) { 
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+//   res.setHeader('Access-Control-Allow-Credentials', true); 
+//   next(); 
+// });
 
 app.use(cors());
 
