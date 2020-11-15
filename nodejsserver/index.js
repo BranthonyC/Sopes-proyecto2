@@ -32,16 +32,16 @@ const CuartoReporte = function(db, callback){
         "$group": {
             "_id": {
                 "$concat": [
-                    { "$cond": [ { "$and": [ { "$gt":  ["$age", 0 ] }, { "$lt": ["$age", 10] } ]}, "0 - 10", ""] },
-                    { "$cond": [ { "$and": [ { "$gte": ["$age", 10] }, { "$lt": ["$age", 21] } ]}, "10 - 20", ""] },
-                    { "$cond": [ { "$and": [ { "$gte": ["$age", 21] }, { "$lt": ["$age", 31] } ]}, "20 - 30", ""] },
-                    { "$cond": [ { "$and": [ { "$gte": ["$age", 31] }, { "$lt": ["$age", 41] } ]}, "30 - 40", ""] },
-                    { "$cond": [ { "$and": [ { "$gte": ["$age", 41] }, { "$lt": ["$age", 51] } ]}, "40 - 50", ""] },
-                    { "$cond": [ { "$and": [ { "$gte": ["$age", 51] }, { "$lt": ["$age", 61] } ]}, "50 - 60", ""] },
-                    { "$cond": [ { "$and": [ { "$gte": ["$age", 61] }, { "$lt": ["$age", 71] } ]}, "60 - 70", ""] },
-                    { "$cond": [ { "$and": [ { "$gte": ["$age", 71] }, { "$lt": ["$age", 81] } ]}, "70 - 80", ""] },
-                    { "$cond": [ { "$and": [ { "$gte": ["$age", 81] }, { "$lt": ["$age", 91] } ]}, "80 - 90", ""] },
-                    { "$cond": [ { "$and": [ { "$gte": ["$age", 91] }, { "$lt": ["$age", 101] } ]}, "80 - 90", ""] },
+                    { "$cond": [ { "$and": [ { "$gt":  [{$toInt:"$age"}, 0 ] }, { "$lt": [{$toInt:"$age"}, 10] } ]}, "0 - 10", ""] },
+                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 10] }, { "$lt": [{$toInt:"$age"}, 21] } ]}, "10 - 20", ""] },
+                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 21] }, { "$lt": [{$toInt:"$age"}, 31] } ]}, "20 - 30", ""] },
+                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 31] }, { "$lt": [{$toInt:"$age"}, 41] } ]}, "30 - 40", ""] },
+                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 41] }, { "$lt": [{$toInt:"$age"}, 51] } ]}, "40 - 50", ""] },
+                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 51] }, { "$lt": [{$toInt:"$age"}, 61] } ]}, "50 - 60", ""] },
+                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 61] }, { "$lt": [{$toInt:"$age"}, 71] } ]}, "60 - 70", ""] },
+                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 71] }, { "$lt": [{$toInt:"$age"}, 81] } ]}, "70 - 80", ""] },
+                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 81] }, { "$lt": [{$toInt:"$age"}, 91] } ]}, "80 - 90", ""] },
+                    { "$cond": [ { "$and": [ { "$gte": [{$toInt:"$age"}, 91] }, { "$lt": [{$toInt:"$age"}, 101] } ]}, "80 - 90", ""] },
                 ]
             },
             "personas": { "$sum": 1 }
@@ -115,7 +115,6 @@ app.get('/primero', function(req, res, next){
   MongoClient.connect(url, function(err, client) {
     // assert.equal(null, err);
     console.log("Connected successfully to server");
-  
     const db = client.db(dbName);
     PrimerReporte(db, function(docs){
       if(docs){
